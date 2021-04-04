@@ -27,6 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# custom
 
 # Application definition
 
@@ -37,11 +38,18 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-        'corsheaders',
+    
+    'corsheaders',
     'rest_framework',
+
     'questions',
+    'account',
+
 
 ]
+AUTH_USER_MODEL = 'account.Account'
+
+
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
@@ -54,7 +62,6 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-CORS_ALLOW_ALL_ORIGINS = True
 
 
 ROOT_URLCONF = 'loinfo.urls'
@@ -132,8 +139,9 @@ REST_FRAMEWORK = {
     # or allow read-only access for unauthenticated users.
     'DEFAULT_PERMISSION_CLASSES': [
         #'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
-        'rest_framework.permissions.AllowAny',
+       'rest_framework.permissions.AllowAny',
 
     ]
 }
 
+CORS_ALLOW_ALL_ORIGINS = True
